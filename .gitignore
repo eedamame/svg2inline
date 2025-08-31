@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Parcel build artifacts
+.parcel-cache/
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment files
+.env
+.env.local
