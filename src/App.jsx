@@ -98,6 +98,9 @@ function App() {
                 </div>
               )}
             </main>
+            <aside>
+              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7048236974805217" crossorigin="anonymous"></script>
+            </aside>
           </div>
         );
     }
