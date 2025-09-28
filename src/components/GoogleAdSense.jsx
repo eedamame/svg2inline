@@ -3,6 +3,13 @@ import { useEffect } from 'react';
 const GoogleAdSense = ({ clientId }) => {
   useEffect(() => {
     if (!clientId) return;
+    
+    // Cookie同意の確認
+    const consent = localStorage.getItem('cookie-consent');
+    if (consent === 'declined') {
+      console.log('Google AdSense: ユーザーがCookieを拒否したため無効化');
+      return;
+    }
 
     // AdSense script を動的に追加
     const script = document.createElement('script');

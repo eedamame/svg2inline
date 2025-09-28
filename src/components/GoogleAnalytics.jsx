@@ -3,6 +3,13 @@ import { useEffect } from 'react';
 const GoogleAnalytics = ({ measurementId }) => {
   useEffect(() => {
     if (!measurementId) return;
+    
+    // Cookie同意の確認
+    const consent = localStorage.getItem('cookie-consent');
+    if (consent === 'declined') {
+      console.log('Google Analytics: ユーザーがCookieを拒否したため無効化');
+      return;
+    }
 
     // Google Analytics script を動的に追加
     const script1 = document.createElement('script');
