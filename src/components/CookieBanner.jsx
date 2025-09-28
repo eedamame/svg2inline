@@ -53,6 +53,10 @@ const CookieBanner = () => {
       document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
     });
     
+    // AdSenseスクリプトも削除
+    const adSenseScripts = document.querySelectorAll('script[src*="adsbygoogle.js"]');
+    adSenseScripts.forEach(script => script.remove());
+    
     // ページリロードで確実に無効化
     window.location.reload();
   };

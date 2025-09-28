@@ -6,6 +6,7 @@ import Preview from './components/Preview';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Terms from './components/Terms';
 import GoogleTagManager from './components/GoogleTagManager';
+import AdSenseScript from './components/AdSenseScript';
 import CookieBanner from './components/CookieBanner';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
 
   // Google Tag Manager ID（実際の値に置き換える）
   const GTM_ID = process.env.REACT_APP_GTM_ID || 'GTM-XXXXXXXXX';
+  const ADSENSE_CLIENT_ID = 'ca-pub-7048236974805217';
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -98,9 +100,6 @@ function App() {
                 </div>
               )}
             </main>
-            <aside>
-              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7048236974805217" crossorigin="anonymous"></script>
-            </aside>
           </div>
         );
     }
@@ -110,6 +109,9 @@ function App() {
     <>
       {/* Google Tag Manager */}
       <GoogleTagManager gtmId={GTM_ID} />
+      
+      {/* AdSense Script */}
+      <AdSenseScript clientId={ADSENSE_CLIENT_ID} />
       
       <Layout>
         {renderContent()}
