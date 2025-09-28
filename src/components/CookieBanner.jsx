@@ -64,8 +64,8 @@ const CookieBanner = () => {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="flex-1">
           <p className="text-sm leading-relaxed mb-2">
-            このサイトでは、Google Tag Managerを通じてGoogle AnalyticsとGoogle AdSenseを使用し、
-            サイトの利用状況を分析し、適切な広告を表示するためにCookieを使用します。
+            このサイトでは、Google Tag Managerを使用してサイトの利用状況を分析し、
+            適切な広告を表示するためにCookieを使用します。
             詳細は
             <a href="#privacy" className="text-blue-400 hover:text-blue-300 underline mx-1">
               プライバシーポリシー
@@ -73,7 +73,7 @@ const CookieBanner = () => {
             をご確認ください。
           </p>
           <p className="text-xs leading-relaxed text-gray-300">
-            This site uses Google Tag Manager for Google Analytics and AdSense to analyze usage and display relevant ads. 
+            This site uses Google Tag Manager to analyze usage and display relevant ads. 
             See our <a href="#privacy" className="text-blue-400 hover:text-blue-300 underline">Privacy Policy</a> for details.
           </p>
         </div>
