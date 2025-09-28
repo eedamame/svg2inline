@@ -5,7 +5,7 @@ import CodeOutput from './components/CodeOutput';
 import Preview from './components/Preview';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Terms from './components/Terms';
-import GoogleAnalytics from './components/GoogleAnalytics';
+import GoogleTagManager from './components/GoogleTagManager';
 import GoogleAdSense from './components/GoogleAdSense';
 import CookieBanner from './components/CookieBanner';
 
@@ -15,8 +15,8 @@ function App() {
   const [editedCSS, setEditedCSS] = useState('');
   const [currentPage, setCurrentPage] = useState('home');
 
-  // Google Analytics と AdSense の ID（実際の値に置き換える）
-  const GA_MEASUREMENT_ID = process.env.REACT_APP_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX';
+  // Google Tag Manager と AdSense の ID（実際の値に置き換える）
+  const GTM_ID = process.env.REACT_APP_GTM_ID || 'GTM-XXXXXXXXX';
   const ADSENSE_CLIENT_ID = process.env.REACT_APP_ADSENSE_CLIENT_ID || 'ca-pub-XXXXXXXXXXXXXXXX';
 
   useEffect(() => {
@@ -107,8 +107,8 @@ function App() {
 
   return (
     <>
-      {/* Google Analytics */}
-      <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
+      {/* Google Tag Manager */}
+      <GoogleTagManager gtmId={GTM_ID} />
       
       {/* Google AdSense */}
       <GoogleAdSense clientId={ADSENSE_CLIENT_ID} />
