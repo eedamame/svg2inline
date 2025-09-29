@@ -101,13 +101,15 @@ function App() {
                 </div>
               )}
               
-              {/* テスト用AdSense広告 */}
+              {/* AdSense広告 - 横長ディスプレイ */}
               <div className="mt-8 p-4 border border-gray-200 rounded">
                 <h3 className="text-sm text-gray-600 mb-2">Advertisement</h3>
                 <AdSenseUnit 
                   adClient="ca-pub-7048236974805217"
-                  adSlot="1234567890"
-                  style={{ display: 'block', textAlign: 'center', minHeight: '200px' }}
+                  adSlot="4572403154"
+                  style={{ display: 'block' }}
+                  format="auto"
+                  fullWidthResponsive={true}
                 />
               </div>
             </main>

@@ -21,15 +21,27 @@ const AdSenseScript = ({ clientId }) => {
     // AdSenseスクリプトを動的に追加
     const script = document.createElement('script');
     script.async = true;
-    script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${clientId}`;
+    const scriptUrl = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${clientId}`;
+    script.src = scriptUrl;
     script.crossOrigin = 'anonymous';
+    
+    console.log('AdSense: スクリプト読み込み開始', { 
+      clientId, 
+      url: scriptUrl,
+      domain: window.location.hostname 
+    });
     
     script.onload = () => {
       console.log('AdSense: スクリプト読み込み完了');
     };
     
-    script.onerror = () => {
-      console.error('AdSense: スクリプト読み込みエラー');
+    script.onerror = (error) => {
+      console.error('AdSense: スクリプト読み込みエラー', { 
+        error, 
+        clientId, 
+        url: scriptUrl,
+        domain: window.location.hostname 
+      });
     };
 
     document.head.appendChild(script);
