@@ -14,7 +14,6 @@ const AdSenseScript = ({ clientId }) => {
     // 既にスクリプトが読み込まれているかチェック
     const existingScript = document.querySelector(`script[src*="adsbygoogle.js"]`);
     if (existingScript) {
-      console.log('AdSense: スクリプトは既に読み込まれています');
       return;
     }
 
@@ -25,23 +24,13 @@ const AdSenseScript = ({ clientId }) => {
     script.src = scriptUrl;
     script.crossOrigin = 'anonymous';
     
-    console.log('AdSense: スクリプト読み込み開始', { 
-      clientId, 
-      url: scriptUrl,
-      domain: window.location.hostname 
-    });
     
     script.onload = () => {
-      console.log('AdSense: スクリプト読み込み完了');
+      // スクリプト読み込み完了
     };
     
     script.onerror = (error) => {
-      console.error('AdSense: スクリプト読み込みエラー', { 
-        error, 
-        clientId, 
-        url: scriptUrl,
-        domain: window.location.hostname 
-      });
+      console.error('AdSense: スクリプト読み込みエラー');
     };
 
     document.head.appendChild(script);
