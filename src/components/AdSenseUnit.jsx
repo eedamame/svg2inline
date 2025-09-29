@@ -20,17 +20,37 @@ const AdSenseUnit = ({
 
     // AdSenseスクリプトが読み込まれているかチェック
     const checkAdSense = () => {
+      console.log('AdSense Unit: チェック開始', {
+        windowAdsByGoogle: !!window.adsbygoogle,
+        adRefCurrent: !!adRef.current,
+        adSlot: adSlot
+      });
+      
       if (window.adsbygoogle && adRef.current) {
         try {
           // 既に処理済みかチェック
-          if (!adRef.current.getAttribute('data-adsbygoogle-status')) {
+          const status = adRef.current.getAttribute('data-adsbygoogle-status');
+          console.log('AdSense Unit: ステータス確認', { status });
+          
+          if (!status) {
+            console.log('AdSense Unit: 広告ユニット初期化開始');
             window.adsbygoogle.push({});
             console.log('AdSense Unit: 広告ユニット初期化完了');
+            
+            // 少し待ってからステータスを再確認
+            setTimeout(() => {
+              const newStatus = adRef.current?.getAttribute('data-adsbygoogle-status');
+              console.log('AdSense Unit: 初期化後ステータス', { newStatus });
+            }, 1000);
           }
         } catch (error) {
           console.error('AdSense Unit: 初期化エラー', error);
         }
       } else {
+        console.log('AdSense Unit: 条件未満足、リトライ', {
+          windowAdsByGoogle: !!window.adsbygoogle,
+          adRefCurrent: !!adRef.current
+        });
         // AdSenseスクリプトがまだ読み込まれていない場合、少し待ってリトライ
         setTimeout(checkAdSense, 100);
       }

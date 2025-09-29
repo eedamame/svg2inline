@@ -7,6 +7,7 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import Terms from './components/Terms';
 import GoogleTagManager from './components/GoogleTagManager';
 import AdSenseScript from './components/AdSenseScript';
+import AdSenseUnit from './components/AdSenseUnit';
 import CookieBanner from './components/CookieBanner';
 
 function App() {
@@ -99,6 +100,16 @@ function App() {
                   />
                 </div>
               )}
+              
+              {/* テスト用AdSense広告 */}
+              <div className="mt-8 p-4 border border-gray-200 rounded">
+                <h3 className="text-sm text-gray-600 mb-2">Advertisement</h3>
+                <AdSenseUnit 
+                  adClient="ca-pub-7048236974805217"
+                  adSlot="1234567890"
+                  style={{ display: 'block', textAlign: 'center', minHeight: '200px' }}
+                />
+              </div>
             </main>
           </div>
         );
